@@ -1,10 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 //backend of sdas
 
 void install(char *pkg) {
-    int returnCode = system("sudo emerge --ask %s", pkg); //hope this shi works!!!!!
+    char command[100]; 
+    char xinstall[120] = "xbps-install -S"; // i think its the correct command idk
+// char xinstall[1000] = "echo "; //placeholder cause i dont have xbps-install command
+    strcat(xinstall, pkg);
+    int returnCode = system(xinstall); 
 
     if (returnCode == 0) {
         printf("Installed! You may now close this window!"); //i think it opens a window atleast i hope it does!
@@ -12,17 +17,23 @@ void install(char *pkg) {
     }
 
     else {
-        printf("Install failed! Returned code:", returnCode); //hope this work frfr
+        printf("Install failed! Returned code: %d", returnCode); //hope this work frfr
     } 
 }
 
-void unstall(char *pkg) {
-    int returnCode = system("sudo emerge --deselect --ask %s", pkg);
+void uninstall(char *pkg) {
+
+    char command[100]; 
+    char xuninstall[120] = "xbps-remove -R"; // i think its the correct command idk
+//     char xuninstall[1000] = "echo "; //placeholder cause i dont have xbps-install command
+    strcat(xuninstall, pkg);
+    int returnCode = system(xuninstall); 
+
 
     if (returnCode == 0) {
         printf("Deselected! Going to part 2!"); 
 
-        int returnCode = system("sudo emerge --ask --depclean %s", pkg);
+        int returnCode = system(command);
 
         if (returnCode == 0) {
             printf("Uninstalled! You may now close this window!"); //i think it opens a window atleast i hope it does!
@@ -30,12 +41,12 @@ void unstall(char *pkg) {
             }
 
         else {
-            printf("Uninstalled failed! Returned code:", returnCode); //hope this work frfr
+            printf("Uninstalled failed! Returned code: %d", returnCode); //hope this work frfr
         } 
     }
 
     else {
-        printf("Depclean failed! Returned code:", returnCode); //hope this work frfrfr
+        printf("Depclean failed! Returned code: %d", returnCode); //hope this work frfrfr
     } 
 }
 
@@ -45,4 +56,26 @@ void cleanup() {
 
 void update() {
     //stuff
+}
+
+
+int main(int argc, char* argv[]){
+
+    if (argc != 3){
+        printf("help text");
+        return 1;
+    }
+
+    if (strcmp(argv[1], "install") == 0) {
+        install(argv[2]);
+        return 0;
+    }
+    if (strcmp(argv[1], "uninstall") == 0) {
+        printf("uninstall");
+        return 0;
+    }
+    else {
+        printf("print help text idk");
+        return 1;
+    }
 }

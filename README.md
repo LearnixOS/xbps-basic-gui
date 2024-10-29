@@ -1,8 +1,8 @@
-# SDAS (Primary Branch)
-SDAS stands for SP649's Distro App Store and is a CLI (might change) where you can get used to the CLI. It is mainly made for Gentoo but will support Debian, Fedora, Arch, and Arch-based distros. The 1st version will only support Gentoo for now. It is just a hobby project nothing big. It will be able to use sudo or doas but right now it will only support sudo. Every release/archive will get its own branch while the current development will get the main branch. Also, it is made in C++ (might change later but prob not). This program doesn't manage use-flags but simply makes an easy way to install and uninstall packages. 
+# GUI-XBPS
+A GUI for XBPS, Void Linux's package manager. It is forked from SP649's SDAS. The CLI is just for testing it.  Check the wiki for some more info!
 ```
-Dependencies/Requirements (As of right now):
+Things you need:
 1. Sudo
-2. Gentoo
-3. Xorg (idk about wayland but it might work)
+2. Void
+3. Xorg (maybe? idk if it works on wayland)
 ```
