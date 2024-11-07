@@ -5,4 +5,6 @@ Things you need:
 1. Sudo
 2. Void
 3. Xorg (maybe? idk if it works on wayland)
+4. GCC
+5. Make (or maybe called Cmake idk)
 ```
