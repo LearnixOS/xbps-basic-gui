@@ -31,22 +31,13 @@ void uninstall(char *pkg) {
 
 
     if (returnCode == 0) {
-        printf("Deselected! Going to part 2!"); 
+        printf("Uninstalled Sucessfully"); 
 
         int returnCode = system(command);
-
-        if (returnCode == 0) {
-            printf("Uninstalled! You may now close this window!"); //i think it opens a window atleast i hope it does!
-    
-            }
-
-        else {
-            printf("Uninstalled failed! Returned code: %d", returnCode); //hope this work frfr
-        } 
     }
 
     else {
-        printf("Depclean failed! Returned code: %d", returnCode); //hope this work frfrfr
+        printf("Uninstall failed! Returned code: %d", returnCode); //hope this work frfrfr
     } 
 }
 
